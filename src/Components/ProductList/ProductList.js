@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Inventory = () => {
+const ProductList = () => {
 
     const stockedItemDetails = [
         {
@@ -65,4 +65,4 @@ const Inventory = () => {
     );
 };
 
-export default Inventory;
+export default ProductList;

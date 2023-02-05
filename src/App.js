@@ -1,6 +1,6 @@
 import './App.css';
 import Cart from './Components/Cart/Cart';
-import Inventory from './Components/Inventory/Inventory';
+import ProductList from './Components/ProductList/ProductList';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
             <div className="grid grid-cols-12 gap-6">
 
                 {/* left section */}
-                <Inventory />
+                <ProductList />
 
                 {/* right section */}
                 <Cart />
