@@ -1,26 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {stockedItemDetails} from '../../utils/stockedItemDetails';
 
 const ProductList = () => {
 
-    const stockedItemDetails = [
-        {
-            name: "Asus Vivobook X515MA",
-            itemsRemaining: 20,
-            unitPrice: 35500
-        },
+    const [productList, setProductList] = useState([])
 
-        {
-            name: "Dell E1916HV 18.5 Inch ",
-            itemsRemaining: 35,
-            unitPrice: 9300
-        },
+    const addItemHandler = (item) => {
+        console.log('ProductList:', item)
+    }
 
-        {
-            name: "Canon Eos 4000D 18MP",
-            itemsRemaining: 72,
-            unitPrice: 36500
-        }
-    ]
+    useEffect(() => {
+        setProductList(stockedItemDetails)
+    }, [])
+
 
 
     return (
@@ -28,18 +20,18 @@ const ProductList = () => {
             className="col-span-12 sm:col-span-12 md:col-span-7 lg:col-span-8 xxl:col-span-8"
         >
             {
-                stockedItemDetails.map((item, indx) => (
+                productList.map((item, indx) => (
                     <div
                         className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4" key={indx}
                     >
                         <div className="flex justify-between px-4 items-center">
                             <div className="text-lg font-semibold">
                                 <p>{item.name} ({item.itemsRemaining})</p>
-                                <p className="text-gray-400 text-base">Tk {item.unitPrice.toLocaleString()}</p>
+                                <p className="text-gray-400 text-base">Tk {item.unitPrice?.toLocaleString()}</p>
                             </div>
                             <div className="text-lg font-semibold">
                                 <button
-                                    className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center"
+                                    className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center" onClick={() => addItemHandler(item)}
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
